@@ -1,0 +1,86 @@
+basePath: /
+definitions:
+  models.OpResponse:
+    properties:
+      a:
+        type: number
+      b:
+        type: number
+      sum:
+        type: number
+    type: object
+host: localhost:8443
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: Example API server using only net/http and HTTPS.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API (HTTPS)
+  version: "1.0"
+paths:
+  /div:
+    get:
+      consumes:
+      - application/json
+      description: Get the div of two query parameters a and b
+      parameters:
+      - description: First number
+        in: query
+        name: a
+        required: true
+        type: number
+      - description: Second number
+        in: query
+        name: b
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.OpResponse'
+        "400":
+          description: Invalid input
+          schema:
+            type: string
+      summary: Returns the div of two numbers
+      tags:
+      - math
+  /sum:
+    get:
+      consumes:
+      - application/json
+      description: Get the sum of two query parameters a and b
+      parameters:
+      - description: First number
+        in: query
+        name: a
+        required: true
+        type: number
+      - description: Second number
+        in: query
+        name: b
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.OpResponse'
+        "400":
+          description: Invalid input
+          schema:
+            type: string
+      summary: Returns the sum of two numbers
+      tags:
+      - math
+swagger: "2.0"
